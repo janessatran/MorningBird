@@ -11,6 +11,10 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         Text("Hello, World!")
+        .onAppear {
+        let weather = Weather()
+        weather.getWeather(city: "Madison")
+        }
     }
 }
 
