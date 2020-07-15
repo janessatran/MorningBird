@@ -9,11 +9,13 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var weather: Weather
+
     var body: some View {
         Text("Hello, World!")
         .onAppear {
-        let weather = Weather()
-        weather.getWeather(city: "Madison")
+            self.weather.getWeather(city: "Madison")
+            print(self.weather.weatherData?.weatherDescription)
         }
     }
 }

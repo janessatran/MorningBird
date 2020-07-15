@@ -6,8 +6,6 @@
 //  Copyright © 2020 Janessa Tran. All rights reserved.
 //
 
-import Foundation
-
 struct WeatherData: Codable  {
     let weatherDescription: [WeatherDescription]
     let weatherDetails : WeatherDetails

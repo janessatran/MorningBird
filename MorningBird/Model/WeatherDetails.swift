@@ -5,9 +5,6 @@
 //  Created by Janessa Tran on 7/15/20.
 //  Copyright © 2020 Janessa Tran. All rights reserved.
 //
-
-import Foundation
-
 struct WeatherDetails: Codable {
     var temp: Double
     var feelsLike: Double

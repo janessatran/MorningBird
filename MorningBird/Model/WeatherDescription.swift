@@ -6,8 +6,6 @@
 //  Copyright © 2020 Janessa Tran. All rights reserved.
 //
 
-import Foundation
-
 struct WeatherDescription: Codable {
     var main: String
     var description: String
