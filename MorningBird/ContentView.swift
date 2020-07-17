@@ -1,27 +1,38 @@
+////
+////  ContentView.swift
+////  MorningBird
+////
+////  Created by Janessa Tran on 7/8/20.
+////  Copyright © 2020 Janessa Tran. All rights reserved.
+////
 //
-//  ContentView.swift
-//  MorningBird
+//import SwiftUI
 //
-//  Created by Janessa Tran on 7/8/20.
-//  Copyright © 2020 Janessa Tran. All rights reserved.
+//struct ContentView: View {
+//    @EnvironmentObject var userData: UserData
+////    let weather = Weather()
+//    @State private var city: String = "Madison"
 //
-
-import SwiftUI
-
-struct ContentView: View {
-    @EnvironmentObject var weather: Weather
-
-    var body: some View {
-        Text("Hello, World!")
-        .onAppear {
-            self.weather.getWeather(city: "Madison")
-            print(self.weather.weatherData?.weatherDescription)
-        }
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
+//    var body: some View {
+//        VStack(alignment: .leading) {
+//            Group {
+//                Text("City")
+//                    .font(.callout)
+//                    .bold()
+//                TextField("Enter city name...", text: $city, onEditingChanged: {
+//                    city in
+//                }, onCommit: {
+//                    self.weather.getWeather(city: self.city)
+//                })
+//                    .textFieldStyle(RoundedBorderTextFieldStyle())
+//                Text($userData.weatherData.weatherDescription.first.main)
+//            }
+//        }.padding()
+//    }
+//}
+//
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView()
+//    }
+//}
