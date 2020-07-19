@@ -14,8 +14,8 @@ class CityList: ObservableObject {
 
     let didChange = PassthroughSubject<CityList, Never>()
     var cities: [City] = [City(name: "Lake Arrowhead"), City(name: "Madison"), City(name: "San Diego")] {
-        didSet {
-            didChange.send(self)
+        willSet {
+            self.objectWillChange.send()
         }
     }
 }

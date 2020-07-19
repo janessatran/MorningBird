@@ -6,6 +6,8 @@
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>Weather API Key</key>
 	<string>5b415a004161b69a32acd821f7b9a170</string>
+	<key>Quote API Key</key>
+	<string>33f8cf136d4b295d25eb639d29757a61ebbbb2ef	</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>

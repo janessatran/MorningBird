@@ -13,24 +13,40 @@ import Combine
 class City: ObservableObject {
     var didChange = PassthroughSubject<City, Never>()
     let name: String
-    private let openWeatherMapBaseURL = "https://api.openweathermap.org/data/2.5/weather"
+    let objectWillChange = ObservableObjectPublisher()
 
+    private let openWeatherMapBaseURL = "https://api.openweathermap.org/data/2.5/weather"
+    private let paperQuotesBaseURL = "https://api.paperquotes.com/apiv1/quotes/?tags=motivation&curated=1"
+    let infoDict: [String: Any] = Bundle.main.infoDictionary!
+    let session = URLSession.shared
+
+    // willSet is a property observer.
+    // We use it to execute code when a property has just been set,
+    // so anytime weather changes, like in getWeather(), objectWillChange.send() will run.
+    // It does the same thing as the @Published property wrapper
+    // (it notifies any views that are observing that object that something important has changed)
+    // but we have more control and can call other functions when it gets triggered.
     var weather: WeatherData? {
-        didSet {
-            didChange.send(self)
+        willSet {
+            self.objectWillChange.send()
+        }
+    }
+
+    var quote: QuoteData? {
+        willSet {
+            self.objectWillChange.send()
         }
     }
 
     init(name: String) {
         self.name = name
         self.getWeather()
+        self.getQuote()
     }
 
     private func getWeather() {
-        let infoDict: [String: Any] = Bundle.main.infoDictionary!
         let openWeatherMapAPIKey = infoDict["Weather API Key"] as! String
-        let session = URLSession.shared
-        let urlString = "\(openWeatherMapBaseURL)?q=\(self.name)&appid=\(openWeatherMapAPIKey)"
+        let urlString = "\(openWeatherMapBaseURL)?q=\(self.name)&appid=\(openWeatherMapAPIKey)&units=imperial"
         let formattedUrlString = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
 
         guard let url = URL(string: formattedUrlString!) else { return }
@@ -44,11 +60,37 @@ class City: ObservableObject {
                 let weatherObject = try decoder.decode(WeatherData.self, from: data)
                 DispatchQueue.main.async {
                     self.weather = weatherObject
-                    print(self.weather)
+//                    print(self.weather)
                 }
             } catch {
                 print(error.localizedDescription)
             }
-            }).resume()
+        }).resume()
+    }
+
+    private func getQuote() {
+        let quoteAPIKey = infoDict["Quote API Key"] as! String
+        let urlString = "\(paperQuotesBaseURL)"
+        let formattedUrlString = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+
+        guard let url = URL(string: formattedUrlString!) else { return }
+
+        var quotesRequestURL = URLRequest(url: url)
+        quotesRequestURL.addValue("Token \(quoteAPIKey)", forHTTPHeaderField: "Authorization")
+
+        session.dataTask(with: quotesRequestURL as URLRequest, completionHandler: { (data, response, error) in
+            guard let data = data else { return }
+            print(data)
+            do {
+                let decoder = JSONDecoder()
+                let quotesObject = try decoder.decode(QuoteData.self, from: data)
+                DispatchQueue.main.async {
+                    self.quote = quotesObject
+//                    print(self.quote)
+                }
+            } catch {
+                print(error.localizedDescription)
+            }
+        }).resume()
     }
 }

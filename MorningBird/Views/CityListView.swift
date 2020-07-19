@@ -49,14 +49,10 @@ struct CityListView : View {
     }
 
     private func move(from source: IndexSet, to destination: Int) {
-        if let first = source.first {
-            if destination == self.cityList.cities.endIndex {
-                self.cityList.cities.swapAt(first, destination - 1)
-            } else {
-                self.cityList.cities.swapAt(first, destination)
-            }
+        self.cityList.cities.move(fromOffsets: source, toOffset: destination)
+        if isEditing == false {
+            self.cityList.objectWillChange.send()
         }
-        self.cityList.objectWillChange.send()
     }
 
 }

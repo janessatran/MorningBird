@@ -66,5 +66,160 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "65FD1C02-2E26-4753-B75A-FA3FBF962782"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MorningBird/Views/CityWeatherView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
+            landmarkName = "icon"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "65FD1C02-2E26-4753-B75A-FA3FBF962782 - ffa8268c8e28c8fc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MorningBird.CityWeatherView.icon.getter : Swift.String"
+                  moduleName = "MorningBird"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/janessa/Projects/mobile/MorningBird/MorningBird/Views/CityWeatherView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "56">
+               </Location>
+               <Location
+                  uuid = "65FD1C02-2E26-4753-B75A-FA3FBF962782 - ffa8268c8e28c8fc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MorningBird.CityWeatherView.icon.getter : Swift.String"
+                  moduleName = "MorningBird"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/janessa/Projects/mobile/MorningBird/MorningBird/Views/CityWeatherView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "67">
+               </Location>
+               <Location
+                  uuid = "65FD1C02-2E26-4753-B75A-FA3FBF962782 - ffa8268c8e28c8fc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MorningBird.CityWeatherView.icon.getter : Swift.String"
+                  moduleName = "MorningBird"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/janessa/Projects/mobile/MorningBird/MorningBird/Views/CityWeatherView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "350">
+               </Location>
+               <Location
+                  uuid = "65FD1C02-2E26-4753-B75A-FA3FBF962782 - ffa8268c8e28c8fc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MorningBird.CityWeatherView.icon.getter : Swift.String"
+                  moduleName = "MorningBird"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/janessa/Projects/mobile/MorningBird/MorningBird/Views/CityWeatherView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "616">
+               </Location>
+               <Location
+                  uuid = "65FD1C02-2E26-4753-B75A-FA3FBF962782 - ffa8268c8e28c8fc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MorningBird.CityWeatherView.icon.getter : Swift.String"
+                  moduleName = "MorningBird"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/janessa/Projects/mobile/MorningBird/MorningBird/Views/CityWeatherView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "882">
+               </Location>
+               <Location
+                  uuid = "65FD1C02-2E26-4753-B75A-FA3FBF962782 - ffa8268c8e28c8fc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MorningBird.CityWeatherView.icon.getter : Swift.String"
+                  moduleName = "MorningBird"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/janessa/Projects/mobile/MorningBird/MorningBird/Views/CityWeatherView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "1148">
+               </Location>
+               <Location
+                  uuid = "65FD1C02-2E26-4753-B75A-FA3FBF962782 - ffa8268c8e28c8fc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MorningBird.CityWeatherView.icon.getter : Swift.String"
+                  moduleName = "MorningBird"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/janessa/Projects/mobile/MorningBird/MorningBird/Views/CityWeatherView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "1414">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E435CCD8-0163-4C90-899A-A8A39F5DFA13"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MorningBird/Models/City.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "getWeather()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A8518804-287F-4773-A357-8F0BB3FBDCFB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MorningBird/Models/City.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "init(name:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

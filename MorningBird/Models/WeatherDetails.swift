@@ -5,6 +5,7 @@
 //  Created by Janessa Tran on 7/15/20.
 //  Copyright © 2020 Janessa Tran. All rights reserved.
 //
+
 struct WeatherDetails: Codable {
     var temp: Double
     var feelsLike: Double
@@ -30,6 +31,7 @@ struct WeatherDetails: Codable {
         self.tempMax = try container.decode(Double.self, forKey: .tempMax)
         self.pressure = try container.decode(Double.self, forKey: .pressure)
         self.humidity = try container.decode(Double.self, forKey: .humidity)
+
     }
 
     func encode(to encoder: Encoder) throws {
@@ -40,6 +42,5 @@ struct WeatherDetails: Codable {
         try container.encode(self.tempMax, forKey: .tempMax)
         try container.encode(self.pressure, forKey: .pressure)
         try container.encode(self.humidity, forKey: .humidity)
-
     }
 }
