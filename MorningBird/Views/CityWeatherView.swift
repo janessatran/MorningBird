@@ -155,7 +155,7 @@ struct CityWeatherView: View {
                 Spacer()
                 VStack(alignment: .center) {
                     Text(quote).font(.body).italic().fixedSize(horizontal: false, vertical: true).multilineTextAlignment(.center)
-                    Text(author).font(.caption).multilineTextAlignment(.center)
+//                    Text(author).font(.caption).multilineTextAlignment(.center)
                 }.padding(10)
 
                 Spacer()
