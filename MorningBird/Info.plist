@@ -4,10 +4,6 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
-	<key>Weather API Key</key>
-	<string>5b415a004161b69a32acd821f7b9a170</string>
-	<key>Quote API Key</key>
-	<string>33f8cf136d4b295d25eb639d29757a61ebbbb2ef	</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -20,10 +16,25 @@
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.morningbird.app</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>morningbirdapp</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>Quote API Key</key>
+	<string>33f8cf136d4b295d25eb639d29757a61ebbbb2ef	</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -60,5 +71,11 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>Weather API Key</key>
+	<string>5b415a004161b69a32acd821f7b9a170</string>
+	<key>Spotify API Key</key>
+	<string>0a17fddc71d44550ba12b95fd05f1805</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<string>spotify</string>
 </dict>
 </plist>

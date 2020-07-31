@@ -18,6 +18,8 @@ struct CityRow: View {
                 .lineLimit(nil)
                     .font(.title)
                 Spacer()
+            }.onAppear {
+                self.city.updateWeather()
             }
         }
     }

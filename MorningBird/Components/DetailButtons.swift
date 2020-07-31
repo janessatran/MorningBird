@@ -21,7 +21,7 @@ struct DetailButtons: View {
                 .font(.callout)
                 .padding(.bottom)
         }
-        .frame(width: 100, height: 200)
+        .frame(width: 100, height: 175)
         .background(Palette.color5)
         .foregroundColor(.white)
         .cornerRadius(32)

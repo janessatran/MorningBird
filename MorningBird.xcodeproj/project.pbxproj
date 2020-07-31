@@ -22,6 +22,7 @@
 		3A06F2E924C3784F00ED1BA1 /* WeatherWind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A06F2E824C3784F00ED1BA1 /* WeatherWind.swift */; };
 		3A06F2EE24C3BB3900ED1BA1 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A06F2ED24C3BB3900ED1BA1 /* Quote.swift */; };
 		3A06F2F424C3C2F100ED1BA1 /* QuoteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A06F2F324C3C2F100ED1BA1 /* QuoteData.swift */; };
+		3A06F2FE24C4E17000ED1BA1 /* SpotifyiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A06F2FD24C4E17000ED1BA1 /* SpotifyiOS.framework */; };
 		3AB1A88724B6775A008A8FA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB1A88624B6775A008A8FA6 /* AppDelegate.swift */; };
 		3AB1A88924B6775A008A8FA6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB1A88824B6775A008A8FA6 /* SceneDelegate.swift */; };
 		3AB1A88B24B6775A008A8FA6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB1A88A24B6775A008A8FA6 /* ContentView.swift */; };
@@ -46,6 +47,8 @@
 		3A06F2E824C3784F00ED1BA1 /* WeatherWind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherWind.swift; sourceTree = "<group>"; };
 		3A06F2ED24C3BB3900ED1BA1 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
 		3A06F2F324C3C2F100ED1BA1 /* QuoteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteData.swift; sourceTree = "<group>"; };
+		3A06F2F824C4E03B00ED1BA1 /* MorningBird-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MorningBird-Bridging-Header.h"; sourceTree = "<group>"; };
+		3A06F2FD24C4E17000ED1BA1 /* SpotifyiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyiOS.framework; sourceTree = "<group>"; };
 		3AB1A88324B6775A008A8FA6 /* MorningBird.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MorningBird.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AB1A88624B6775A008A8FA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3AB1A88824B6775A008A8FA6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A06F2FE24C4E17000ED1BA1 /* SpotifyiOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,8 +91,9 @@
 		3AB1A87A24B6775A008A8FA6 = {
 			isa = PBXGroup;
 			children = (
+				3A06F2FD24C4E17000ED1BA1 /* SpotifyiOS.framework */,
+				3A06F2F824C4E03B00ED1BA1 /* MorningBird-Bridging-Header.h */,
 				3AB1A88524B6775A008A8FA6 /* MorningBird */,
-				3AB1A88424B6775A008A8FA6 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,6 +103,7 @@
 				3AB1A88324B6775A008A8FA6 /* MorningBird.app */,
 			);
 			name = Products;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		3AB1A88524B6775A008A8FA6 /* MorningBird */ = {
@@ -122,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				3AB1A88F24B6775E008A8FA6 /* Preview Assets.xcassets */,
+				3AB1A88424B6775A008A8FA6 /* Products */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -380,13 +387,21 @@
 				DEVELOPMENT_ASSET_PATHS = "\"MorningBird/Preview Content\"";
 				DEVELOPMENT_TEAM = AVGX93U5KZ;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MorningBird",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = MorningBird/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.MorningBird;
+				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.morningbird.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MorningBird-Bridging-Header.h";
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -400,13 +415,21 @@
 				DEVELOPMENT_ASSET_PATHS = "\"MorningBird/Preview Content\"";
 				DEVELOPMENT_TEAM = AVGX93U5KZ;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MorningBird",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = MorningBird/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.MorningBird;
+				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.morningbird.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MorningBird-Bridging-Header.h";
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

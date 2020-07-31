@@ -101,18 +101,47 @@ struct CityWeatherView: View {
         }
     }
 
+    let randomElement: Int = Int.random(in: 0 ... 3)
+
     var quote: String {
-        guard let quote = city.quote?.quote.last else {
+        guard let quote = city.quote?.quote[randomElement] else {
             return "\"You are awesome\""
         }
         return "\"\(quote.quote)\""
     }
 
     var author: String {
-        guard let quote = city.quote?.quote.last else {
+        guard let quote = city.quote?.quote[randomElement] else {
             return "Janessa"
         }
         return "\(quote.author)"
+    }
+
+    var appRemote: SPTAppRemote? {
+        get {
+            return (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.appRemote
+        }
+    }
+
+    let playURI = ""
+    let trackIdentifier = "spotify:track:32ftxJzxMPgUFCM6Km9WTS"
+    let name = "Now Playing View"
+    var playerState: SPTAppRemotePlayerState?
+    @State var subscribedToPlayerState: Bool = false
+    var subscribedToCapabilities: Bool = false
+    @State var musicButton: String = "spotify-logo"
+    @State var trackName: String = ""
+    @State var trackArtist: String = ""
+    @State private var showingAlert = false
+
+    var defaultCallback: SPTAppRemoteCallback {
+        get {
+            return {[self] _, error in
+                if let error = error {
+                    print(error)
+                }
+            }
+        }
     }
 
     var body: some View {
@@ -125,10 +154,45 @@ struct CityWeatherView: View {
                 Text(description).font(.caption)
                 Spacer()
                 VStack(alignment: .center) {
-                    Text(quote).font(.title).italic().multilineTextAlignment(.center)
+                    Text(quote).font(.body).italic().fixedSize(horizontal: false, vertical: true).multilineTextAlignment(.center)
                     Text(author).font(.caption).multilineTextAlignment(.center)
                 }.padding(10)
+
                 Spacer()
+                Button(action: {
+                    if self.appRemote?.isConnected == false {
+                        if self.appRemote?.authorizeAndPlayURI(self.playURI) == false {
+                            self.showingAlert = true
+//                            .appStoreOverlay(isPresented: true) {
+//                                let spotifyID = SPTAppRemote.spotifyItunesItemIdentifier()
+//                                       SKOverlay.AppConfiguration(appIdentifier: spotifyID, position: .bottom)
+//                                   }
+                        }
+                    } else {
+                        self.subscribeToPlayerState()
+                        //                        if self.playerState == nil || self.playerState!.isPaused {
+                        if self.musicButton == "play" || self.musicButton == "spotify-logo" {
+                            self.startPlayback()
+                            self.musicButton = "pause"
+                        } else {
+                            self.pausePlayback()
+                            self.musicButton = "play"
+                        }
+                    }
+                }) {
+                    if musicButton == "play" || musicButton == "pause" {
+                        Image(systemName: musicButton)
+                            .font(.largeTitle)
+                            .foregroundColor(.white)
+                    } else {
+                        Image(musicButton)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height:40)
+                    }
+                }
+                Spacer()
+
                 HStack(alignment: .center, spacing: 16) {
                     ScrollView(.horizontal) {
                         HStack(spacing: 12) {
@@ -140,15 +204,44 @@ struct CityWeatherView: View {
                         .cornerRadius(32)
                     }.padding(.bottom)
                 }
-            }
 
+                .alert(isPresented: $showingAlert) {
+                    Alert(title: Text("Song of the Day"), message: Text("In order to listen to the song of the day, download Spotify from the App Store on your device!"), dismissButton: .default(Text("Got it!")))
+                }
+            }
         }
     }
-}
 
-//
-//struct CityWeatherView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CityWeatherView(dailyWeather: WeatherDetails)
-//    }
-//}
+    private func startPlayback() {
+        appRemote?.playerAPI?.resume(defaultCallback)
+        self.getPlayerState()
+
+    }
+
+    private func pausePlayback() {
+        appRemote?.playerAPI?.pause(defaultCallback)
+        self.getPlayerState()
+    }
+
+    private func getPlayerState() {
+        appRemote?.playerAPI?.getPlayerState { (result, error) -> Void in
+            guard error == nil else { return }
+            let playerState = result as! SPTAppRemotePlayerState
+        }
+    }
+
+    private func subscribeToPlayerState() {
+        guard (!subscribedToPlayerState) else { return }
+        appRemote?.playerAPI!.delegate = self as? SceneDelegate
+        appRemote?.playerAPI?.subscribe { (_, error) -> Void in
+            guard error == nil else { return }
+            self.subscribedToPlayerState = true
+            self.updatePlayerStateSubscriptionButtonState()
+        }
+    }
+
+
+    private func updatePlayerStateSubscriptionButtonState() {
+        let playerStateSubscriptionButtonTitle = subscribedToPlayerState ? "Unsubscribe" : "Subscribe"
+    }
+}

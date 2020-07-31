@@ -38,6 +38,14 @@ class City: ObservableObject {
         }
     }
 
+    public func updateWeather(){
+        self.getWeather()
+    }
+
+    public func updateQuote() {
+        self.getQuote()
+    }
+
     init(name: String) {
         self.name = name
         self.getWeather()
