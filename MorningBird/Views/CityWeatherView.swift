@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import StoreKit
 
 struct CityWeatherView: View {
     @State var city: City
@@ -126,13 +127,12 @@ struct CityWeatherView: View {
     let playURI = ""
     let trackIdentifier = "spotify:track:32ftxJzxMPgUFCM6Km9WTS"
     let name = "Now Playing View"
-    var playerState: SPTAppRemotePlayerState?
+    @State var playerState: SPTAppRemotePlayerState?
     @State var subscribedToPlayerState: Bool = false
-    var subscribedToCapabilities: Bool = false
+    @State var subscribedToCapabilities: Bool = false
     @State var musicButton: String = "spotify-logo"
-    @State var trackName: String = ""
-    @State var trackArtist: String = ""
     @State private var showingAlert = false
+    @State private var showingAppStore = false
 
     var defaultCallback: SPTAppRemoteCallback {
         get {
@@ -163,10 +163,9 @@ struct CityWeatherView: View {
                     if self.appRemote?.isConnected == false {
                         if self.appRemote?.authorizeAndPlayURI(self.playURI) == false {
                             self.showingAlert = true
-//                            .appStoreOverlay(isPresented: true) {
-//                                let spotifyID = SPTAppRemote.spotifyItunesItemIdentifier()
-//                                       SKOverlay.AppConfiguration(appIdentifier: spotifyID, position: .bottom)
-//                                   }
+                            self.showingAppStore = true
+                        } else {
+                            self.musicButton = "pause"
                         }
                     } else {
                         self.subscribeToPlayerState()
@@ -174,6 +173,7 @@ struct CityWeatherView: View {
                         if self.musicButton == "play" || self.musicButton == "spotify-logo" {
                             self.startPlayback()
                             self.musicButton = "pause"
+
                         } else {
                             self.pausePlayback()
                             self.musicButton = "play"
@@ -186,11 +186,10 @@ struct CityWeatherView: View {
                             .foregroundColor(.white)
                     } else {
                         Image(musicButton)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(height:40)
+                            .foregroundColor(.white)
                     }
                 }
+
                 Spacer()
 
                 HStack(alignment: .center, spacing: 16) {
@@ -208,6 +207,12 @@ struct CityWeatherView: View {
                 .alert(isPresented: $showingAlert) {
                     Alert(title: Text("Song of the Day"), message: Text("In order to listen to the song of the day, download Spotify from the App Store on your device!"), dismissButton: .default(Text("Got it!")))
                 }
+
+                //                .appStoreOverlay(isPresented: $showingAppStore) {
+                //                    let config = SKOverlay.AppConfiguration(appIdentifier: "324684580", position: .bottom)
+                //                             config.userDismissible = true
+                //                    return config
+                //                }
             }
         }
     }
@@ -226,20 +231,19 @@ struct CityWeatherView: View {
     private func getPlayerState() {
         appRemote?.playerAPI?.getPlayerState { (result, error) -> Void in
             guard error == nil else { return }
-            let playerState = result as! SPTAppRemotePlayerState
+            self.playerState = result as! SPTAppRemotePlayerState
         }
     }
 
     private func subscribeToPlayerState() {
         guard (!subscribedToPlayerState) else { return }
-        appRemote?.playerAPI!.delegate = self as? SceneDelegate
+        appRemote?.playerAPI!.delegate = SceneDelegate.init()
         appRemote?.playerAPI?.subscribe { (_, error) -> Void in
             guard error == nil else { return }
             self.subscribedToPlayerState = true
             self.updatePlayerStateSubscriptionButtonState()
         }
     }
-
 
     private func updatePlayerStateSubscriptionButtonState() {
         let playerStateSubscriptionButtonTitle = subscribedToPlayerState ? "Unsubscribe" : "Subscribe"

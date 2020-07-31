@@ -19,7 +19,7 @@ struct AddCityView: View {
         NavigationView {
             List {
                 Section {
-                    TextField("Search City", text: $search, onCommit: {
+                    TextField("Type in a city name and press 'Return'", text: $search, onCommit: {
                         self.addCity(input: self.search)
                     })
                 }
