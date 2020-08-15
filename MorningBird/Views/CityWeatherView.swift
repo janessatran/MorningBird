@@ -131,6 +131,8 @@ struct CityWeatherView: View {
     @State var subscribedToPlayerState: Bool = false
     @State var subscribedToCapabilities: Bool = false
     @State var musicButton: String = "spotify-logo"
+    @State var trackNameLabel: String = ""
+
     @State private var showingAlert = false
     @State private var showingAppStore = false
 
@@ -155,43 +157,47 @@ struct CityWeatherView: View {
                 Spacer()
                 VStack(alignment: .center) {
                     Text(quote).font(.body).italic().fixedSize(horizontal: false, vertical: true).multilineTextAlignment(.center)
-//                    Text(author).font(.caption).multilineTextAlignment(.center)
+                    //                    Text(author).font(.caption).multilineTextAlignment(.center)
                 }.padding(10)
 
                 Spacer()
-                Button(action: {
-                    if self.appRemote?.isConnected == false {
-                        if self.appRemote?.authorizeAndPlayURI(self.playURI) == false {
-                            self.showingAlert = true
-                            self.showingAppStore = true
+                VStack {
+                    Button(action: {
+                        if self.appRemote?.isConnected == false {
+                            if self.appRemote?.authorizeAndPlayURI(self.playURI) == false {
+                                self.showingAlert = true
+                                self.showingAppStore = true
+                            } else {
+                                self.musicButton = "pause"
+                            }
                         } else {
-                            self.musicButton = "pause"
+                            if self.musicButton == "play" || self.musicButton == "spotify-logo" {
+                                self.startPlayback()
+                                self.musicButton = "pause"
+                            } else {
+                                self.pausePlayback()
+                                self.musicButton = "play"
+                            }
                         }
-                    } else {
-                        self.subscribeToPlayerState()
-                        //                        if self.playerState == nil || self.playerState!.isPaused {
-                        if self.musicButton == "play" || self.musicButton == "spotify-logo" {
-                            self.startPlayback()
-                            self.musicButton = "pause"
 
+                        if self.trackNameLabel == "" && self.musicButton == "pause" {
+                            self.getTrackInfo()
+                        }
+                    }) {
+                        if musicButton == "play" || musicButton == "pause" {
+                            Image(systemName: musicButton)
+                                .font(.largeTitle)
+                                .foregroundColor(.white)
                         } else {
-                            self.pausePlayback()
-                            self.musicButton = "play"
+                            Image(musicButton)
+                                .foregroundColor(.white)
                         }
                     }
-                }) {
-                    if musicButton == "play" || musicButton == "pause" {
-                        Image(systemName: musicButton)
-                            .font(.largeTitle)
-                            .foregroundColor(.white)
-                    } else {
-                        Image(musicButton)
-                            .foregroundColor(.white)
+                    if trackNameLabel != "" {
+                        Text(trackNameLabel)
                     }
                 }
-
                 Spacer()
-
                 HStack(alignment: .center, spacing: 16) {
                     ScrollView(.horizontal) {
                         HStack(spacing: 12) {
@@ -220,7 +226,6 @@ struct CityWeatherView: View {
     private func startPlayback() {
         appRemote?.playerAPI?.resume(defaultCallback)
         self.getPlayerState()
-
     }
 
     private func pausePlayback() {
@@ -231,7 +236,8 @@ struct CityWeatherView: View {
     private func getPlayerState() {
         appRemote?.playerAPI?.getPlayerState { (result, error) -> Void in
             guard error == nil else { return }
-            self.playerState = result as! SPTAppRemotePlayerState
+            self.playerState = result as? SPTAppRemotePlayerState
+            self.getTrackInfo()
         }
     }
 
@@ -242,10 +248,21 @@ struct CityWeatherView: View {
             guard error == nil else { return }
             self.subscribedToPlayerState = true
             self.updatePlayerStateSubscriptionButtonState()
+            self.getTrackInfo()
         }
     }
 
     private func updatePlayerStateSubscriptionButtonState() {
         let playerStateSubscriptionButtonTitle = subscribedToPlayerState ? "Unsubscribe" : "Subscribe"
     }
+
+    private func getTrackInfo() {
+        let trackName = self.playerState?.track.name
+        let trackArtist = self.playerState?.track.artist.name
+
+        if trackName != nil && trackArtist != nil {
+            self.trackNameLabel = "\(trackName!) - \(trackArtist!)"
+        }
+    }
 }
+
