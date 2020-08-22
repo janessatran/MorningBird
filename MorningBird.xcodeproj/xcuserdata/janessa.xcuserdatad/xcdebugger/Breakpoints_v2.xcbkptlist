@@ -53,22 +53,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "DCB2EBBF-1AEF-4ED5-9686-78884CD63401"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MorningBird/Views/CityListView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "delete(at:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "65FD1C02-2E26-4753-B75A-FA3FBF962782"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -263,8 +247,8 @@
             filePath = "MorningBird/Views/CityWeatherView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "251"
-            endingLineNumber = "251"
+            startingLineNumber = "250"
+            endingLineNumber = "250"
             landmarkName = "subscribeToPlayerState()"
             landmarkType = "7">
          </BreakpointContent>
@@ -279,8 +263,8 @@
             filePath = "MorningBird/Views/CityWeatherView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "226"
-            endingLineNumber = "226"
+            startingLineNumber = "225"
+            endingLineNumber = "225"
             landmarkName = "startPlayback()"
             landmarkType = "7">
          </BreakpointContent>
@@ -295,8 +279,8 @@
             filePath = "MorningBird/Views/CityWeatherView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "231"
-            endingLineNumber = "231"
+            startingLineNumber = "230"
+            endingLineNumber = "230"
             landmarkName = "pausePlayback()"
             landmarkType = "7">
          </BreakpointContent>
@@ -311,8 +295,8 @@
             filePath = "MorningBird/Views/CityWeatherView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "184"
-            endingLineNumber = "184"
+            startingLineNumber = "183"
+            endingLineNumber = "183"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>

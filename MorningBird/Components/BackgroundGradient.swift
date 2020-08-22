@@ -17,6 +17,7 @@ struct BackgroundGradient: View {
                 startPoint: .top, endPoint: .bottom
             ))
             .edgesIgnoringSafeArea(.all)
+        .clipShape(RoundedRectangle(cornerRadius: 15))
     }
 }
 

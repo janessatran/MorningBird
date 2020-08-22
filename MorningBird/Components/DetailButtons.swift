@@ -13,20 +13,22 @@ struct DetailButtons: View {
     let temp: String
 
     var body: some View {
-        return VStack {
-            Text(title)
-                .font(.caption)
-                .padding(.top)
-            Text(temp)
-                .font(.callout)
-                .padding(.bottom)
+        ZStack(alignment: .bottom) {
+            BackgroundGradient()
+            VStack {
+                Text(title)
+                    .font(.caption)
+                    .padding(.top)
+                Text(temp)
+                    .font(.callout)
+                    .padding(.bottom)
+            }
+            .frame(width: 100, height: 175)
+                //        .background(Palette.color5)
+                .foregroundColor(.white)
+                .cornerRadius(32)
         }
-        .frame(width: 100, height: 175)
-        .background(Palette.color5)
-        .foregroundColor(.white)
-        .cornerRadius(32)
     }
-
 }
 
 struct DetailButtons_Previews: PreviewProvider {

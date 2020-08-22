@@ -14,20 +14,23 @@ struct CityListView : View {
     @State var isPresentingModal: Bool = false
     @State private var isEditing: Bool = false
 
+    init() {
+        UITableView.appearance().separatorStyle = .none
+        UITableView.appearance().backgroundColor = .flatBackground
+    }
+
     var body: some View {
         NavigationView {
             List {
-                Section(header: Text("Your Cities")) {
-                    ForEach(self.cityList.cities, id: \.name) { city in
-                        CityRow(city: city)
-                    }
-                    .onDelete(perform: delete)
-                    .onMove(perform: move)
+                ForEach(self.cityList.cities, id: \.name) { city in
+                    CityRow(city: city)
                 }
+                .onDelete(perform: delete)
+                .onMove(perform: move)
             }
             .navigationBarItems(leading: EditButton(), trailing: addButton)
             .navigationBarTitle(Text("Cities"))
-        }
+        }.accentColor(.black)
     }
 
     private var addButton: some View {

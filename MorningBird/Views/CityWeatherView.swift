@@ -148,7 +148,6 @@ struct CityWeatherView: View {
 
     var body: some View {
         ZStack {
-            BackgroundGradient()
             VStack(alignment: .center) {
                 Text(city.name).fontWeight(.bold).font(.largeTitle)
                 Image(icon)
@@ -187,10 +186,10 @@ struct CityWeatherView: View {
                         if musicButton == "play" || musicButton == "pause" {
                             Image(systemName: musicButton)
                                 .font(.largeTitle)
-                                .foregroundColor(.white)
+                                .foregroundColor(.black)
                         } else {
                             Image(musicButton)
-                                .foregroundColor(.white)
+                                .foregroundColor(.black)
                         }
                     }
                     if trackNameLabel != "" {
