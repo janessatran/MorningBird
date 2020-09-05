@@ -10,12 +10,13 @@ import SwiftUI
 
 struct CityRow: View {
     @ObservedObject var city: City
+    @Environment(\.managedObjectContext) var managedObjectContext
 
     var body: some View {
         ZStack(alignment: .leading) {
             Color.flatCardBackground
             HStack {
-                NavigationLink(destination: CityWeatherView(city: city)) {
+                NavigationLink(destination: CityWeatherView(city: city).environment(\.managedObjectContext, managedObjectContext)) {
                     VStack(alignment: .leading) {
                         Text(city.name)
                             .font(.headline)
@@ -59,6 +60,6 @@ extension Color {
 
     public static var flatCardBackground: Color {
         return Color(decimalRed: 233, green: 233, blue: 233)
-//        return Color(decimalRed: 148, green: 187, blue: 233)
+        //        return Color(decimalRed: 148, green: 187, blue: 233)
     }
 }

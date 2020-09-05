@@ -13,6 +13,7 @@ struct CityListView : View {
     @EnvironmentObject var cityList: CityList
     @State var isPresentingModal: Bool = false
     @State private var isEditing: Bool = false
+    @Environment(\.managedObjectContext) var managedObjectContext
 
     init() {
         UITableView.appearance().separatorStyle = .none
@@ -23,13 +24,17 @@ struct CityListView : View {
         NavigationView {
             List {
                 ForEach(self.cityList.cities, id: \.name) { city in
-                    CityRow(city: city)
+                    CityRow(city: city).environment(\.managedObjectContext, self.managedObjectContext)
                 }
                 .onDelete(perform: delete)
                 .onMove(perform: move)
             }
-            .navigationBarItems(leading: EditButton(), trailing: addButton)
+            .navigationBarItems(
+                leading: EditButton(),
+                trailing:addButton
+            )
             .navigationBarTitle(Text("Cities"))
+            
         }.accentColor(.black)
     }
 
@@ -39,9 +44,10 @@ struct CityListView : View {
         }) {
             Image(systemName: "plus.circle.fill")
                 .font(.title)
+
         }.sheet(isPresented: $isPresentingModal) {
             AddCityView().environmentObject(self.cityList)
-        }
+        }.frame(minWidth: 30, maxWidth: .infinity)
     }
 
     private func delete(at offsets: IndexSet) {

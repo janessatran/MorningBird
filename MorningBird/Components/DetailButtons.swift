@@ -24,7 +24,6 @@ struct DetailButtons: View {
                     .padding(.bottom)
             }
             .frame(width: 100, height: 175)
-                //        .background(Palette.color5)
                 .foregroundColor(.white)
                 .cornerRadius(32)
         }

@@ -11,6 +11,7 @@ import StoreKit
 
 struct CityWeatherView: View {
     @State var city: City
+    @Environment(\.managedObjectContext) var managedObjectContext
 
     var temperature: String {
         guard let temperature = city.weather?.weatherDetails.temp else {
@@ -124,14 +125,15 @@ struct CityWeatherView: View {
         }
     }
 
-    let playURI = ""
-    let trackIdentifier = "spotify:track:32ftxJzxMPgUFCM6Km9WTS"
+    //    let trackIdentifier = "spotify:track:2lFXZ6pE7Rb85JJAaiAueA" The Greatest Gift by Sufjan Stevens
+    let trackIdentifier = ""
     let name = "Now Playing View"
     @State var playerState: SPTAppRemotePlayerState?
     @State var subscribedToPlayerState: Bool = false
     @State var subscribedToCapabilities: Bool = false
     @State var musicButton: String = "spotify-logo"
     @State var trackNameLabel: String = ""
+    @State var playURI = ""
 
     @State private var showingAlert = false
     @State private var showingAppStore = false
@@ -150,20 +152,23 @@ struct CityWeatherView: View {
         ZStack {
             VStack(alignment: .center) {
                 Text(city.name).fontWeight(.bold).font(.largeTitle)
+                .navigationBarItems(trailing:
+                    NavigationLink(destination: JacketWornSurvey(city: city).environment(\.managedObjectContext, managedObjectContext)) {
+                    Image(systemName: "magnifyingglass.circle").font(.title)
+                })
                 Image(icon)
                 Text(temperature).font(.title)
                 Text(description).font(.caption)
                 Spacer()
                 VStack(alignment: .center) {
                     Text(quote).font(.body).italic().fixedSize(horizontal: false, vertical: true).multilineTextAlignment(.center)
-                    //                    Text(author).font(.caption).multilineTextAlignment(.center)
                 }.padding(10)
 
                 Spacer()
                 VStack {
                     Button(action: {
                         if self.appRemote?.isConnected == false {
-                            if self.appRemote?.authorizeAndPlayURI(self.playURI) == false {
+                            if (self.appRemote?.authorizeAndPlayURI(self.trackIdentifier, asRadio: true) == false) {
                                 self.showingAlert = true
                                 self.showingAppStore = true
                             } else {

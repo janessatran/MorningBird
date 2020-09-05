@@ -23,6 +23,11 @@
 		3A06F2EE24C3BB3900ED1BA1 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A06F2ED24C3BB3900ED1BA1 /* Quote.swift */; };
 		3A06F2F424C3C2F100ED1BA1 /* QuoteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A06F2F324C3C2F100ED1BA1 /* QuoteData.swift */; };
 		3A06F2FE24C4E17000ED1BA1 /* SpotifyiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A06F2FD24C4E17000ED1BA1 /* SpotifyiOS.framework */; };
+		3A6F31402503D758003264CD /* JacketRegressionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6F313F2503D758003264CD /* JacketRegressionModel.swift */; };
+		3A6F31432503D898003264CD /* MorningBird.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3A6F31412503D898003264CD /* MorningBird.xcdatamodeld */; };
+		3A6F31452503E7F4003264CD /* JacketWornSurvey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6F31442503E7F4003264CD /* JacketWornSurvey.swift */; };
+		3A6F314725040AE0003264CD /* UserCity+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6F314625040AE0003264CD /* UserCity+Extensions.swift */; };
+		3A6F314925040B1C003264CD /* UserJacketData+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6F314825040B1C003264CD /* UserJacketData+Extensions.swift */; };
 		3AB1A88724B6775A008A8FA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB1A88624B6775A008A8FA6 /* AppDelegate.swift */; };
 		3AB1A88924B6775A008A8FA6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB1A88824B6775A008A8FA6 /* SceneDelegate.swift */; };
 		3AB1A88B24B6775A008A8FA6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB1A88A24B6775A008A8FA6 /* ContentView.swift */; };
@@ -49,6 +54,11 @@
 		3A06F2F324C3C2F100ED1BA1 /* QuoteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteData.swift; sourceTree = "<group>"; };
 		3A06F2F824C4E03B00ED1BA1 /* MorningBird-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MorningBird-Bridging-Header.h"; sourceTree = "<group>"; };
 		3A06F2FD24C4E17000ED1BA1 /* SpotifyiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyiOS.framework; sourceTree = "<group>"; };
+		3A6F313F2503D758003264CD /* JacketRegressionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JacketRegressionModel.swift; sourceTree = "<group>"; };
+		3A6F31422503D898003264CD /* UserData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserData.xcdatamodel; sourceTree = "<group>"; };
+		3A6F31442503E7F4003264CD /* JacketWornSurvey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JacketWornSurvey.swift; sourceTree = "<group>"; };
+		3A6F314625040AE0003264CD /* UserCity+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserCity+Extensions.swift"; sourceTree = "<group>"; };
+		3A6F314825040B1C003264CD /* UserJacketData+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserJacketData+Extensions.swift"; sourceTree = "<group>"; };
 		3AB1A88324B6775A008A8FA6 /* MorningBird.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MorningBird.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AB1A88624B6775A008A8FA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3AB1A88824B6775A008A8FA6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -144,6 +154,10 @@
 				3A06F2E824C3784F00ED1BA1 /* WeatherWind.swift */,
 				3A06F2ED24C3BB3900ED1BA1 /* Quote.swift */,
 				3A06F2F324C3C2F100ED1BA1 /* QuoteData.swift */,
+				3A6F313F2503D758003264CD /* JacketRegressionModel.swift */,
+				3A6F31412503D898003264CD /* MorningBird.xcdatamodeld */,
+				3A6F314625040AE0003264CD /* UserCity+Extensions.swift */,
+				3A6F314825040B1C003264CD /* UserJacketData+Extensions.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -155,6 +169,7 @@
 				3A06F2A324C246EE00ED1BA1 /* CityRow.swift */,
 				3A06F2A524C2476400ED1BA1 /* CityWeatherView.swift */,
 				3A06F2AD24C25E7E00ED1BA1 /* AddCityView.swift */,
+				3A6F31442503E7F4003264CD /* JacketWornSurvey.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -231,6 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A06F2A624C2476400ED1BA1 /* CityWeatherView.swift in Sources */,
+				3A6F31402503D758003264CD /* JacketRegressionModel.swift in Sources */,
 				3A04E31024BF61B700CB5427 /* WeatherData.swift in Sources */,
 				3A06F29E24C2427F00ED1BA1 /* City.swift in Sources */,
 				3A06F2A024C2458000ED1BA1 /* CityList.swift in Sources */,
@@ -239,15 +255,19 @@
 				3A06F2F424C3C2F100ED1BA1 /* QuoteData.swift in Sources */,
 				3A06F2E724C36CF500ED1BA1 /* DetailButtons.swift in Sources */,
 				3AB1A88724B6775A008A8FA6 /* AppDelegate.swift in Sources */,
+				3A6F31432503D898003264CD /* MorningBird.xcdatamodeld in Sources */,
 				3A04E31224BF756D00CB5427 /* WeatherDetails.swift in Sources */,
 				3A06F2AE24C25E7E00ED1BA1 /* AddCityView.swift in Sources */,
 				3A04E31424BF758800CB5427 /* WeatherDescription.swift in Sources */,
+				3A6F31452503E7F4003264CD /* JacketWornSurvey.swift in Sources */,
 				3AB1A88924B6775A008A8FA6 /* SceneDelegate.swift in Sources */,
 				3AB1A88B24B6775A008A8FA6 /* ContentView.swift in Sources */,
 				3A06F2A224C245B300ED1BA1 /* CityListView.swift in Sources */,
 				3A06F2A924C257D600ED1BA1 /* Palette.swift in Sources */,
 				3A06F2E924C3784F00ED1BA1 /* WeatherWind.swift in Sources */,
+				3A6F314725040AE0003264CD /* UserCity+Extensions.swift in Sources */,
 				3A06F2AC24C257F800ED1BA1 /* BackgroundGradient.swift in Sources */,
+				3A6F314925040B1C003264CD /* UserJacketData+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,6 +477,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3A6F31412503D898003264CD /* MorningBird.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3A6F31422503D898003264CD /* UserData.xcdatamodel */,
+			);
+			currentVersion = 3A6F31422503D898003264CD /* UserData.xcdatamodel */;
+			path = MorningBird.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3AB1A87B24B6775A008A8FA6 /* Project object */;
 }
