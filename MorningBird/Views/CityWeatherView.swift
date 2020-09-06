@@ -257,7 +257,7 @@ struct CityWeatherView: View {
     }
 
     private func updatePlayerStateSubscriptionButtonState() {
-        let playerStateSubscriptionButtonTitle = subscribedToPlayerState ? "Unsubscribe" : "Subscribe"
+        _ = subscribedToPlayerState ? "Unsubscribe" : "Subscribe"
     }
 
     private func getTrackInfo() {

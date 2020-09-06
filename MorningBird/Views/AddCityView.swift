@@ -10,10 +10,22 @@ import SwiftUI
 
 struct AddCityView: View {
     @EnvironmentObject var cityList: CityList
-
     @State private var search: String = ""
     @State private var isValidating: Bool = false
     @Environment(\.presentationMode) var presentationMode
+    @Environment(\.managedObjectContext) var managedObjectContext
+
+    func addUserCity(name: String) {
+        let userCity = UserCity(context: managedObjectContext)
+        userCity.name = name
+        userCity.id = UUID()
+        do {
+            try managedObjectContext.save()
+            print("Data saved to core data!")
+        } catch {
+            print(error)
+        }
+    }
 
     var body: some View {
         NavigationView {
@@ -28,7 +40,6 @@ struct AddCityView: View {
             .navigationBarItems(leading: cancelButton)
             .listStyle(GroupedListStyle())
         }
-
     }
 
     private var cancelButton: some View {
@@ -40,8 +51,9 @@ struct AddCityView: View {
     }
 
     private func addCity(input: String) {
+        addUserCity(name: input)
         DispatchQueue.main.async {
-            self.cityList.cities.append(City(name: input))
+//            self.cityList.cities.append(City(name: input))
             self.presentationMode.wrappedValue.dismiss()
         }
     }

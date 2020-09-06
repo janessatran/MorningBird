@@ -11,8 +11,10 @@ import SwiftUI
 import Combine
 
 class CityList: ObservableObject {
-
     let didChange = PassthroughSubject<CityList, Never>()
+
+    @Environment(\.managedObjectContext) var managedObjectContext
+
     var cities: [City] = [City(name: "Lake Arrowhead"), City(name: "Madison"), City(name: "San Diego")] {
         willSet {
             self.objectWillChange.send()

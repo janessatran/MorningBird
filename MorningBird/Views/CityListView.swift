@@ -14,6 +14,8 @@ struct CityListView : View {
     @State var isPresentingModal: Bool = false
     @State private var isEditing: Bool = false
     @Environment(\.managedObjectContext) var managedObjectContext
+    @FetchRequest(fetchRequest: UserCity.citiesFetchRequest)
+    var userCities: FetchedResults<UserCity>
 
     init() {
         UITableView.appearance().separatorStyle = .none
@@ -23,18 +25,16 @@ struct CityListView : View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(self.cityList.cities, id: \.name) { city in
-                    CityRow(city: city).environment(\.managedObjectContext, self.managedObjectContext)
+                ForEach(userCities, id: \.id) { city in
+                    CityRow(city: City(name: city.name!)).environment(\.managedObjectContext, self.managedObjectContext)
                 }
                 .onDelete(perform: delete)
                 .onMove(perform: move)
             }
             .navigationBarItems(
                 leading: EditButton(),
-                trailing:addButton
-            )
-            .navigationBarTitle(Text("Cities"))
-            
+                trailing: addButton)
+                .navigationBarTitle(Text("Cities"))
         }.accentColor(.black)
     }
 
@@ -46,21 +46,50 @@ struct CityListView : View {
                 .font(.title)
 
         }.sheet(isPresented: $isPresentingModal) {
-            AddCityView().environmentObject(self.cityList)
+            AddCityView().environment(\.managedObjectContext, self.managedObjectContext)
+            //                .environmentObject(self.cityList)
         }.frame(minWidth: 30, maxWidth: .infinity)
     }
 
     private func delete(at offsets: IndexSet) {
-        if let first = offsets.first {
-            self.cityList.cities.remove(at: first)
+        for index in offsets {
+            let userCity = userCities[index]
+            managedObjectContext.delete(userCity)
+            //            self.cityList.cities.remove(at: first)
         }
-        self.cityList.objectWillChange.send()
+        saveObjectContext()
+        //        self.cityList.objectWillChange.send()
     }
 
     private func move(from source: IndexSet, to destination: Int) {
-        self.cityList.cities.move(fromOffsets: source, toOffset: destination)
-        if isEditing == false {
-            self.cityList.objectWillChange.send()
+        //        self.cityList.cities.move(fromOffsets: source, toOffset: destination)
+        //        if isEditing == false {
+        //            self.cityList.objectWillChange.send()
+        //        }
+        // Make an array of items from fetched results
+        var revisedCities: [ UserCity ] = userCities.map{ $0 }
+
+        // change the order of the items in the array
+        revisedCities.move(fromOffsets: source, toOffset: destination )
+
+        // update the userOrder attribute in revisedItems to
+        // persist the new order. This is done in reverse order
+        // to minimize changes to the indices.
+        for reverseIndex in stride( from: revisedCities.count - 1,
+                                    through: 0,
+                                    by: -1 )
+        {
+            revisedCities[ reverseIndex ].order =
+                Int16( reverseIndex )
+        }
+        saveObjectContext()
+    }
+
+    func saveObjectContext() {
+        do {
+            try managedObjectContext.save()
+        } catch {
+            print("Could not delete city")
         }
     }
 
