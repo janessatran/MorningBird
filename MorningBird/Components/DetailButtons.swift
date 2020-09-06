@@ -11,21 +11,24 @@ import SwiftUI
 struct DetailButtons: View {
     let title: String
     let temp: String
-
+    
     var body: some View {
         ZStack(alignment: .bottom) {
             BackgroundGradient()
             VStack {
                 Text(title)
                     .font(.caption)
+                    .bold()
                     .padding(.top)
                 Text(temp)
                     .font(.callout)
+                    .bold()
                     .padding(.bottom)
+                
             }
-            .frame(width: 100, height: 175)
-                .foregroundColor(.white)
-                .cornerRadius(32)
+            .frame(minWidth: 100, maxWidth: .infinity, minHeight: 175, maxHeight: .infinity)
+            .foregroundColor(.white)
+            .cornerRadius(32)
         }
     }
 }

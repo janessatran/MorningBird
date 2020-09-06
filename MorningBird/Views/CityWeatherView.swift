@@ -152,10 +152,10 @@ struct CityWeatherView: View {
         ZStack {
             VStack(alignment: .center) {
                 Text(city.name).fontWeight(.bold).font(.largeTitle)
-                .navigationBarItems(trailing:
-                    NavigationLink(destination: JacketWornSurvey(city: city).environment(\.managedObjectContext, managedObjectContext)) {
-                    Image(systemName: "magnifyingglass.circle").font(.title)
-                })
+                    .navigationBarItems(trailing:
+                        NavigationLink(destination: JacketWornSurvey(city: city).environment(\.managedObjectContext, managedObjectContext)) {
+                            Image(systemName: "magnifyingglass.circle").font(.title)
+                    })
                 Image(icon)
                 Text(temperature).font(.title)
                 Text(description).font(.caption)
@@ -206,23 +206,22 @@ struct CityWeatherView: View {
                     ScrollView(.horizontal) {
                         HStack(spacing: 12) {
                             ForEach([feelsLike, minTemp, maxTemp, pressure, humidity, windSpeed, windDeg], id: \.self) { data in
-                                DetailButtons(title: data["title"]!, temp: data["temp"]!)
+                                DetailButtons(title: data["title"]!, temp: data["temp"]!).frame(maxHeight: 200)
                             }
                         }
                         .padding()
                         .cornerRadius(32)
                     }.padding(.bottom)
                 }
-
                 .alert(isPresented: $showingAlert) {
                     Alert(title: Text("Song of the Day"), message: Text("In order to listen to the song of the day, download Spotify from the App Store on your device!"), dismissButton: .default(Text("Got it!")))
                 }
 
-                //                .appStoreOverlay(isPresented: $showingAppStore) {
-                //                    let config = SKOverlay.AppConfiguration(appIdentifier: "324684580", position: .bottom)
-                //                             config.userDismissible = true
-                //                    return config
-                //                }
+//                .appStoreOverlay(isPresented: $showingAppStore) {
+//                    let config = SKOverlay.AppConfiguration(appIdentifier: "324684580", position: .bottom)
+//                             config.userDismissible = true
+//                    return config
+//                }
             }
         }
     }

@@ -31,10 +31,8 @@ struct CityListView : View {
                 .onDelete(perform: delete)
                 .onMove(perform: move)
             }
-            .navigationBarItems(
-                leading: EditButton(),
-                trailing: addButton)
-                .navigationBarTitle(Text("Cities"))
+            .navigationBarItems(leading: EditButton(), trailing: addButton)
+            .navigationBarTitle(Text("Cities"))
         }.accentColor(.black)
     }
 
