@@ -29,6 +29,7 @@
 		3A6F314725040AE0003264CD /* UserCity+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6F314625040AE0003264CD /* UserCity+Extensions.swift */; };
 		3A6F314925040B1C003264CD /* UserJacketData+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6F314825040B1C003264CD /* UserJacketData+Extensions.swift */; };
 		3A6F314B25051F33003264CD /* JacketSurveyCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6F314A25051F32003264CD /* JacketSurveyCard.swift */; };
+		3A6F314D25052164003264CD /* DailyJacketRecommendation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6F314C25052164003264CD /* DailyJacketRecommendation.swift */; };
 		3AB1A88724B6775A008A8FA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB1A88624B6775A008A8FA6 /* AppDelegate.swift */; };
 		3AB1A88924B6775A008A8FA6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB1A88824B6775A008A8FA6 /* SceneDelegate.swift */; };
 		3AB1A88B24B6775A008A8FA6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB1A88A24B6775A008A8FA6 /* ContentView.swift */; };
@@ -61,6 +62,7 @@
 		3A6F314625040AE0003264CD /* UserCity+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserCity+Extensions.swift"; sourceTree = "<group>"; };
 		3A6F314825040B1C003264CD /* UserJacketData+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserJacketData+Extensions.swift"; sourceTree = "<group>"; };
 		3A6F314A25051F32003264CD /* JacketSurveyCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JacketSurveyCard.swift; sourceTree = "<group>"; };
+		3A6F314C25052164003264CD /* DailyJacketRecommendation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyJacketRecommendation.swift; sourceTree = "<group>"; };
 		3AB1A88324B6775A008A8FA6 /* MorningBird.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MorningBird.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AB1A88624B6775A008A8FA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3AB1A88824B6775A008A8FA6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				3A06F2AB24C257F800ED1BA1 /* BackgroundGradient.swift */,
 				3A06F2E624C36CF500ED1BA1 /* DetailButtons.swift */,
 				3A6F314A25051F32003264CD /* JacketSurveyCard.swift */,
+				3A6F314C25052164003264CD /* DailyJacketRecommendation.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 				3A6F31402503D758003264CD /* JacketRegressionModel.swift in Sources */,
 				3A04E31024BF61B700CB5427 /* WeatherData.swift in Sources */,
 				3A6F314B25051F33003264CD /* JacketSurveyCard.swift in Sources */,
+				3A6F314D25052164003264CD /* DailyJacketRecommendation.swift in Sources */,
 				3A06F29E24C2427F00ED1BA1 /* City.swift in Sources */,
 				3A06F2A024C2458000ED1BA1 /* CityList.swift in Sources */,
 				3A06F2EE24C3BB3900ED1BA1 /* Quote.swift in Sources */,

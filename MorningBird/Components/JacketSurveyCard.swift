@@ -10,7 +10,6 @@ import SwiftUI
 
 struct JacketSurveyCard: View {
     let city: City
-    var icon: String { return "jumper" }
     
     @State private var buttonDisabled = false
     @State var userAnswer: Bool = false
@@ -25,7 +24,7 @@ struct JacketSurveyCard: View {
         Button(action: {
             self.isPresentingModal = true
         }) {
-            Image(systemName: "info.circle.fill")
+            Image(systemName: "info.circle")
                 .font(.title)
 
         }.sheet(isPresented: $isPresentingModal) {
@@ -50,13 +49,10 @@ struct JacketSurveyCard: View {
             BackgroundGradient()
             VStack(alignment: .center) {
                 Text("Did you wear a jacket today?")
-                    .fontWeight(.bold)
-                    .font(.largeTitle)
+                    .font(.system(size: 20, weight: .bold, design: .default))
                     .multilineTextAlignment(.center)
                     .fixedSize(horizontal: false, vertical: true)
                     .navigationBarItems(trailing: learnMoreButton)
-                Image(icon)
-                    .multilineTextAlignment(.center)
                     .alert(isPresented: $showingAlert) {
                         Alert(
                             title: Text("Answer already recorded for today"),
@@ -67,6 +63,8 @@ struct JacketSurveyCard: View {
                             ),
                             secondaryButton: .default(Text("Cancel")))
                 }
+                Spacer().frame(height: 50)
+
                 HStack {
                     Button(action: {
                         self.checkDataForCurrentDate()
@@ -74,20 +72,19 @@ struct JacketSurveyCard: View {
                     }) {
                         HStack {
                             Image(systemName: "checkmark.circle")
-                            Text("Yes").font(.title)
+                            Text("Yes").font(.body)
                         }
                     }
                     .buttonStyle(YesButtonStyle(buttonDisabled: $buttonDisabled))
                     .frame(maxWidth: .infinity)
                     .disabled(buttonDisabled)
-
                     Button(action: {
                         self.checkDataForCurrentDate()
                         self.userAnswer = false
                     }) {
                         HStack {
                             Image(systemName: "xmark.circle")
-                            Text("No").font(.title)
+                            Text("No").font(.body)
                         }
                     }
                     .buttonStyle(NoButtonStyle(buttonDisabled: $buttonDisabled))
@@ -96,12 +93,12 @@ struct JacketSurveyCard: View {
                 }
             }
             .padding(25)
-            .frame(minWidth: 100, maxWidth: .infinity, minHeight: 200, maxHeight: .infinity)
+            .frame(minWidth: 100, maxWidth: .infinity, minHeight: 200, maxHeight: 400)
             Spacer()
             Spacer()
         }
         .padding(25)
-        .frame(maxHeight: 400)
+        .frame(maxHeight: 500)
     }
 
     func checkDataForCurrentDate() {
@@ -136,9 +133,9 @@ struct YesButtonStyle: ButtonStyle {
 
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
-            .foregroundColor(Color.white)
+            .foregroundColor(Color.black)
             .padding()
-            .background(buttonDisabled ? .gray : Palette.color1)
+            .background(buttonDisabled ? .gray : Color.white)
             //            .background(LinearGradient(gradient: Gradient(colors: [Color.green, Color.blue]), startPoint: .leading, endPoint: .trailing))
             .cornerRadius(15.0)
             .scaleEffect(configuration.isPressed ? 1.3 : 1.0)
@@ -150,9 +147,9 @@ struct NoButtonStyle: ButtonStyle {
 
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
-            .foregroundColor(Color.white)
+            .foregroundColor(Color.black)
             .padding()
-            .background(buttonDisabled ? .gray : Palette.color5)
+            .background(buttonDisabled ? .gray : Color.white)
 
             //            .background(LinearGradient(gradient: Gradient(colors: [Color.red, Color.orange]), startPoint: .leading, endPoint: .trailing))
             .cornerRadius(15.0)

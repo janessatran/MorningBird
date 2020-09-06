@@ -154,6 +154,7 @@ struct CityWeatherView: View {
                 Text(city.name).fontWeight(.bold).font(.largeTitle)
                     .navigationBarItems(trailing:
                         NavigationLink(destination: JacketWornSurvey(city: city).environment(\.managedObjectContext, managedObjectContext)) {
+                            Text("Jacket?").font(.footnote)
                             Image(systemName: "magnifyingglass.circle").font(.title)
                     })
                 Image(icon)
