@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -30,12 +30,14 @@
 		3A6F314925040B1C003264CD /* UserJacketData+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6F314825040B1C003264CD /* UserJacketData+Extensions.swift */; };
 		3A6F314B25051F33003264CD /* JacketSurveyCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6F314A25051F32003264CD /* JacketSurveyCard.swift */; };
 		3A6F314D25052164003264CD /* DailyJacketRecommendation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6F314C25052164003264CD /* DailyJacketRecommendation.swift */; };
+		3A77F8C625165101002CE49F /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 3A77F8C525165101002CE49F /* Podfile */; };
 		3AB1A88724B6775A008A8FA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB1A88624B6775A008A8FA6 /* AppDelegate.swift */; };
 		3AB1A88924B6775A008A8FA6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB1A88824B6775A008A8FA6 /* SceneDelegate.swift */; };
 		3AB1A88B24B6775A008A8FA6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB1A88A24B6775A008A8FA6 /* ContentView.swift */; };
 		3AB1A88D24B6775E008A8FA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AB1A88C24B6775E008A8FA6 /* Assets.xcassets */; };
 		3AB1A89024B6775E008A8FA6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AB1A88F24B6775E008A8FA6 /* Preview Assets.xcassets */; };
 		3AB1A89324B6775E008A8FA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AB1A89124B6775E008A8FA6 /* LaunchScreen.storyboard */; };
+		E65490837D5069B016B7DB1D /* Pods_MorningBird.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78A18A7EB852A2DBCFAD62AA /* Pods_MorningBird.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +65,7 @@
 		3A6F314825040B1C003264CD /* UserJacketData+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserJacketData+Extensions.swift"; sourceTree = "<group>"; };
 		3A6F314A25051F32003264CD /* JacketSurveyCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JacketSurveyCard.swift; sourceTree = "<group>"; };
 		3A6F314C25052164003264CD /* DailyJacketRecommendation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyJacketRecommendation.swift; sourceTree = "<group>"; };
+		3A77F8C525165101002CE49F /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		3AB1A88324B6775A008A8FA6 /* MorningBird.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MorningBird.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AB1A88624B6775A008A8FA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3AB1A88824B6775A008A8FA6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +74,9 @@
 		3AB1A88F24B6775E008A8FA6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3AB1A89224B6775E008A8FA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3AB1A89424B6775E008A8FA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		61E374CAD5CF2EA3C773DBC6 /* Pods-MorningBird.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MorningBird.debug.xcconfig"; path = "Target Support Files/Pods-MorningBird/Pods-MorningBird.debug.xcconfig"; sourceTree = "<group>"; };
+		78A18A7EB852A2DBCFAD62AA /* Pods_MorningBird.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MorningBird.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5B70A26D9EC34E55D4C9018 /* Pods-MorningBird.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MorningBird.release.xcconfig"; path = "Target Support Files/Pods-MorningBird/Pods-MorningBird.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,12 +85,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A06F2FE24C4E17000ED1BA1 /* SpotifyiOS.framework in Frameworks */,
+				E65490837D5069B016B7DB1D /* Pods_MorningBird.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		08DEE547873964F4862AA3A4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				61E374CAD5CF2EA3C773DBC6 /* Pods-MorningBird.debug.xcconfig */,
+				D5B70A26D9EC34E55D4C9018 /* Pods-MorningBird.release.xcconfig */,
+			);
+			name = Pods;
+			path = MorningBird/Pods;
+			sourceTree = "<group>";
+		};
+		351766F3DA6E0F6589B1FF79 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				78A18A7EB852A2DBCFAD62AA /* Pods_MorningBird.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3A06F2A724C2576400ED1BA1 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +135,8 @@
 				3A06F2FD24C4E17000ED1BA1 /* SpotifyiOS.framework */,
 				3A06F2F824C4E03B00ED1BA1 /* MorningBird-Bridging-Header.h */,
 				3AB1A88524B6775A008A8FA6 /* MorningBird */,
+				08DEE547873964F4862AA3A4 /* Pods */,
+				351766F3DA6E0F6589B1FF79 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -135,6 +162,7 @@
 				3AB1A88C24B6775E008A8FA6 /* Assets.xcassets */,
 				3AB1A89124B6775E008A8FA6 /* LaunchScreen.storyboard */,
 				3AB1A89424B6775E008A8FA6 /* Info.plist */,
+				3A77F8C525165101002CE49F /* Podfile */,
 				3AB1A88E24B6775E008A8FA6 /* Preview Content */,
 			);
 			path = MorningBird;
@@ -187,6 +215,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3AB1A89724B6775E008A8FA6 /* Build configuration list for PBXNativeTarget "MorningBird" */;
 			buildPhases = (
+				5877F0FC3ACA03EF66336D4E /* [CP] Check Pods Manifest.lock */,
 				3AB1A87F24B6775A008A8FA6 /* Sources */,
 				3AB1A88024B6775A008A8FA6 /* Frameworks */,
 				3AB1A88124B6775A008A8FA6 /* Resources */,
@@ -240,11 +269,37 @@
 			files = (
 				3AB1A89324B6775E008A8FA6 /* LaunchScreen.storyboard in Resources */,
 				3AB1A89024B6775E008A8FA6 /* Preview Assets.xcassets in Resources */,
+				3A77F8C625165101002CE49F /* Podfile in Resources */,
 				3AB1A88D24B6775E008A8FA6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5877F0FC3ACA03EF66336D4E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MorningBird-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3AB1A87F24B6775A008A8FA6 /* Sources */ = {
@@ -409,6 +464,7 @@
 		};
 		3AB1A89824B6775E008A8FA6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 61E374CAD5CF2EA3C773DBC6 /* Pods-MorningBird.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -437,6 +493,7 @@
 		};
 		3AB1A89924B6775E008A8FA6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D5B70A26D9EC34E55D4C9018 /* Pods-MorningBird.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

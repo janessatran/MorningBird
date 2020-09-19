@@ -21,6 +21,20 @@ extension UserJacketData {
 
     return request
   }
+
+    static var jacketWornFetchRequest: NSFetchRequest<UserJacketData> {
+        let request: NSFetchRequest<UserJacketData> = UserJacketData.fetchRequest()
+        request.propertiesToFetch = ["jacketWorn", "dateAdded"]
+        request.sortDescriptors = [NSSortDescriptor(key: "dateAdded", ascending: true)]
+        return request
+    }
+
+    static var averageTempFetchRequest: NSFetchRequest<UserJacketData> {
+        let request: NSFetchRequest<UserJacketData> = UserJacketData.fetchRequest()
+        request.propertiesToFetch = ["averageTemperature", "dateAdded"]
+        request.sortDescriptors = [NSSortDescriptor(key: "dateAdded", ascending: true)]
+        return request
+    }
 }
 
 

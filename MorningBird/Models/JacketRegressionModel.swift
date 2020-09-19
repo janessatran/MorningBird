@@ -18,34 +18,70 @@ import CoreData
 
 class JacketRegressionModel {
 
-    var avgTemp: [Double] = [75, 80, 63, 82, 69, 68]
-    var jacketWorn: [Double] = [0, 0, 1, 0, 1, 1]
-    public var recommendationFunction: ((Double) -> Double)
+    //  The typealias allows us to use '$X.day' and '$X.mW',
+    //  instead of '$X.0' and '$X.1' in the following closures.
+    typealias PointTuple = (jacketWorn: Double, temperature: Double)
 
-    // pass the user's data for avgTemp and jacketWorn
-    init(avgTemp: [Double], jacketWorn: [Double]) {
-        self.avgTemp = avgTemp
-        self.jacketWorn = jacketWorn
-        recommendationFunction = JacketRegressionModel.linearRegression(avgTemp, jacketWorn)
+    //  The days are the values on the x-axis.
+    //  mW is the value on the y-axis.
+    var points: [PointTuple] = []
+
+    init() {
     }
 
-    // Reduce sums up the elements in the array,
-    // then we divide by the number of elements to get the avg
-    class func average(_ input: [Double]) -> Double {
-        return input.reduce(0, +) / Double(input.count)
+    func getRecommendation() -> String {
+        var dataPoints: [UserJacketData] = []
+        do {
+            let r = NSFetchRequest<NSFetchRequestResult>(entityName: "UserJacketData")
+            let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+            let f = try context.fetch(r)
+            dataPoints = f as! [UserJacketData]
+        } catch let error as NSError {
+            print("\(error)")
+        }
+        if dataPoints.count < 2 {
+            return "Not enough data points to give a recommendation"
+        } else {
+            let lastDataPoint = dataPoints.remove(at: dataPoints.endIndex - 1)
+            var newDataPoint:Double
+            if lastDataPoint.jacketWorn == true {
+                newDataPoint = 1.0
+            } else {
+                newDataPoint = 0.0
+            }
+            for data: UserJacketData in dataPoints {
+                if data.jacketWorn == true {
+                    points.append((1.0, data.averageTemperature))
+                } else {
+                    points.append((0.0, data.averageTemperature))
+                }
+            }
+            let result:Double = bG(jacketWorn: newDataPoint)
+            if result > 50.0 {
+                return "Yes"
+            } else {
+                return "No"
+            }
+        }
+
     }
 
-    class func multiply(_ a: [Double], _ b: [Double]) -> [Double] {
-        return zip(a,b).map(*)
+    func bG(jacketWorn: Double) -> Double {
+        // When using reduce, $0 is the current total.
+        let meanJacketWorn = points.reduce(0) { $0 + $1.jacketWorn } / Double(points.count)
+        let meanTemperature   = points.reduce(0) { $0 + $1.temperature  } / Double(points.count)
+
+        let a = points.reduce(0) { $0 + ($1.jacketWorn - meanJacketWorn) * ($1.temperature - meanTemperature) }
+        let b = points.reduce(0) { $0 + pow($1.jacketWorn - meanJacketWorn, 2) }
+
+        // The equation of a straight line is: y = mx + c
+        // Where m is the gradient and c is the y intercept.
+        let m = a / b
+        let c = meanTemperature - m * meanJacketWorn
+
+        return m * jacketWorn + c
     }
 
-    // Returns a function describing the line of best fit based on the data
-    class func linearRegression(_ xs: [Double], _ ys: [Double]) -> (Double) -> Double {
-        let sum1 = average(multiply(ys, xs)) - average(xs) * average(ys)
-        let sum2 = average(multiply(xs, xs)) - pow(average(xs), 2)
-        let slope = sum1 / sum2
-        let intercept = average(ys) - slope * average(xs)
-        return { x in intercept + slope * x }
-    }
+    // use it like bg(3)
 
 }
