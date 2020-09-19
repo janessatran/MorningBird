@@ -29,6 +29,11 @@ struct DailyJacketRecommendation: View {
                     .multilineTextAlignment(.center)
                 Spacer().frame(height: 20)
                 Text(model.getRecommendation())
+                    .font(.body)
+                    .multilineTextAlignment(.center)
+                    .lineLimit(nil)
+                .fixedSize(horizontal: false, vertical: true)
+                Spacer().frame(height: 20)
             }
             .padding(25)
             .frame(minWidth: 100, maxWidth: .infinity, minHeight: 200, maxHeight: .infinity)

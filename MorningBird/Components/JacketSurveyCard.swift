@@ -59,7 +59,10 @@ struct JacketSurveyCard: View {
                             message: Text("An answer has already been recorded for you today. If you would like to proceed in overwriting your answer, click Yes, otherwise click Cancel"),
                             primaryButton: .default(
                                 Text("Yes"),
-                                action: { self.addData(jacketWorn: self.userAnswer)}
+                                action: {
+                                    self.removeDataCurrentData()
+                                    self.addData(jacketWorn: self.userAnswer)
+                            }
                             ),
                             secondaryButton: .default(Text("Cancel")))
                 }
@@ -106,6 +109,17 @@ struct JacketSurveyCard: View {
             self.showingAlert = true
         } else {
             self.addData(jacketWorn: self.userAnswer)
+        }
+    }
+
+    func removeDataCurrentData() {
+        do {
+            if let currentDateData = userJacketData.first {
+                managedObjectContext.delete(currentDateData)
+                try managedObjectContext.save()
+            }
+        } catch {
+            print(error)
         }
     }
 
