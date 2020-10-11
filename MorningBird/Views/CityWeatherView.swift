@@ -12,6 +12,8 @@ import StoreKit
 struct CityWeatherView: View {
     @State var city: City
     @Environment(\.managedObjectContext) var managedObjectContext
+    @State private var showingAlertForWeather = false
+    @Environment(\.presentationMode) var presentation
 
     var temperature: String {
         guard let temperature = city.weather?.weatherDetails.temp else {
@@ -153,10 +155,21 @@ struct CityWeatherView: View {
             VStack(alignment: .center) {
                 Text(city.name).fontWeight(.bold).font(.largeTitle)
                     .navigationBarItems(trailing:
-                        NavigationLink(destination: JacketWornSurvey(city: city).environment(\.managedObjectContext, managedObjectContext)) {
-                            Text("Jacket?").font(.footnote)
-                            Image(systemName: "magnifyingglass.circle").font(.title)
-                    })
+                                            NavigationLink(destination: JacketWornSurvey(city: city).environment(\.managedObjectContext, managedObjectContext)) {
+                                                Text("Jacket?").font(.footnote)
+                                                Image(systemName: "magnifyingglass.circle").font(.title)
+                                            })
+                    .onAppear( perform: { self.checkWeatherDataExists() })
+                    .alert(isPresented: $showingAlertForWeather) {
+                        Alert(
+                            title: Text("No Data Found"),
+                            message: Text("Could not find weather data for \(city.name)"),
+                            dismissButton: .default(
+                                Text("OK"),
+                                action: { self.presentation.wrappedValue.dismiss() }
+                            )
+                        )
+                    }
                 Image(icon)
                 Text(temperature).font(.title)
                 Text(description).font(.caption)
@@ -207,7 +220,9 @@ struct CityWeatherView: View {
                     ScrollView(.horizontal) {
                         HStack(spacing: 12) {
                             ForEach([feelsLike, minTemp, maxTemp, pressure, humidity, windSpeed, windDeg], id: \.self) { data in
-                                DetailButtons(title: data["title"]!, temp: data["temp"]!).frame(maxHeight: 200)
+                                if data["title"] != nil && data["temp"] != nil {
+                                    DetailButtons(title: data["title"]!, temp: data["temp"]!).frame(maxHeight: 200)
+                                }
                             }
                         }
                         .padding()
@@ -218,12 +233,20 @@ struct CityWeatherView: View {
                     Alert(title: Text("Song of the Day"), message: Text("In order to listen to the song of the day, download Spotify from the App Store on your device!"), dismissButton: .default(Text("Got it!")))
                 }
 
-//                .appStoreOverlay(isPresented: $showingAppStore) {
-//                    let config = SKOverlay.AppConfiguration(appIdentifier: "324684580", position: .bottom)
-//                             config.userDismissible = true
-//                    return config
-//                }
+                //                .appStoreOverlay(isPresented: $showingAppStore) {
+                //                    let config = SKOverlay.AppConfiguration(appIdentifier: "324684580", position: .bottom)
+                //                             config.userDismissible = true
+                //                    return config
+                //                }
             }
+        }
+    }
+
+    func checkWeatherDataExists() {
+        if city.weather != nil {
+            showingAlertForWeather = false
+        } else {
+            showingAlertForWeather = true
         }
     }
 
