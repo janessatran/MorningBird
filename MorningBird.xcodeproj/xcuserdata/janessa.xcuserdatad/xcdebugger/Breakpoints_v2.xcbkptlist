@@ -66,7 +66,7 @@
             landmarkType = "24">
             <Locations>
                <Location
-                  uuid = "65FD1C02-2E26-4753-B75A-FA3FBF962782 - ffa8268c8e28c8fc"
+                  uuid = "65FD1C02-2E26-4753-B75A-FA3FBF962782 - 466597530be56d0"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -81,7 +81,7 @@
                   offsetFromSymbolStart = "56">
                </Location>
                <Location
-                  uuid = "65FD1C02-2E26-4753-B75A-FA3FBF962782 - ffa8268c8e28c8fc"
+                  uuid = "65FD1C02-2E26-4753-B75A-FA3FBF962782 - 466597530be56d0"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -96,7 +96,7 @@
                   offsetFromSymbolStart = "67">
                </Location>
                <Location
-                  uuid = "65FD1C02-2E26-4753-B75A-FA3FBF962782 - ffa8268c8e28c8fc"
+                  uuid = "65FD1C02-2E26-4753-B75A-FA3FBF962782 - 466597530be56d0"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -111,7 +111,7 @@
                   offsetFromSymbolStart = "350">
                </Location>
                <Location
-                  uuid = "65FD1C02-2E26-4753-B75A-FA3FBF962782 - ffa8268c8e28c8fc"
+                  uuid = "65FD1C02-2E26-4753-B75A-FA3FBF962782 - 466597530be56d0"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -126,7 +126,7 @@
                   offsetFromSymbolStart = "616">
                </Location>
                <Location
-                  uuid = "65FD1C02-2E26-4753-B75A-FA3FBF962782 - ffa8268c8e28c8fc"
+                  uuid = "65FD1C02-2E26-4753-B75A-FA3FBF962782 - 466597530be56d0"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -141,7 +141,7 @@
                   offsetFromSymbolStart = "882">
                </Location>
                <Location
-                  uuid = "65FD1C02-2E26-4753-B75A-FA3FBF962782 - ffa8268c8e28c8fc"
+                  uuid = "65FD1C02-2E26-4753-B75A-FA3FBF962782 - 466597530be56d0"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -156,7 +156,7 @@
                   offsetFromSymbolStart = "1148">
                </Location>
                <Location
-                  uuid = "65FD1C02-2E26-4753-B75A-FA3FBF962782 - ffa8268c8e28c8fc"
+                  uuid = "65FD1C02-2E26-4753-B75A-FA3FBF962782 - 466597530be56d0"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -185,8 +185,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "71"
             endingLineNumber = "71"
-            landmarkName = "getWeather()"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -201,8 +201,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "51"
             endingLineNumber = "51"
-            landmarkName = "init(name:)"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

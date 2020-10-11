@@ -38,6 +38,28 @@ struct CityRow_Previews: PreviewProvider {
     }
 }
 
+func hexStringToUIColor (hex:String) -> UIColor {
+    var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+
+    if (cString.hasPrefix("#")) {
+        cString.remove(at: cString.startIndex)
+    }
+
+    if ((cString.count) != 6) {
+        return UIColor.gray
+    }
+
+    var rgbValue:UInt64 = 0
+    Scanner(string: cString).scanHexInt64(&rgbValue)
+
+    return UIColor(
+        red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+        green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+        blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+        alpha: CGFloat(1.0)
+    )
+}
+
 
 extension UIColor {
     static let flatBackground = UIColor(red: 255, green: 255, blue: 255)
@@ -59,7 +81,17 @@ extension Color {
     }
 
     public static var flatCardBackground: Color {
-        return Color(decimalRed: 233, green: 233, blue: 233)
-        //        return Color(decimalRed: 148, green: 187, blue: 233)
+
+        var myDict: NSDictionary?
+        if let path = Bundle.main.path(forResource: "colors", ofType: "plist") {
+            myDict = NSDictionary(contentsOfFile: path)
+        }
+
+        if myDict != nil {
+            let customColor:String = myDict?["cardBackgroundColorHex"] as! String
+            return Color(hexStringToUIColor(hex: customColor))
+        } else {
+            return Color(decimalRed: 142, green: 233, blue: 233)
+        }
     }
 }

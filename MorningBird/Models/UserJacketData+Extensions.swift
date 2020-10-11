@@ -10,9 +10,6 @@ import Foundation
 import UIKit
 import CoreData
 
-extension UserJacketData: Identifiable {
-}
-
 extension UserJacketData {
   static var currentDataFetchRequest: NSFetchRequest<UserJacketData> {
     let request: NSFetchRequest<UserJacketData> = UserJacketData.fetchRequest()

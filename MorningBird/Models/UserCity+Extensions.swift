@@ -10,9 +10,6 @@ import Foundation
 import UIKit
 import CoreData
 
-extension UserCity: Identifiable {
-}
-
 extension UserCity {
   static var citiesFetchRequest: NSFetchRequest<UserCity> {
     let request: NSFetchRequest<UserCity> = UserCity.fetchRequest()
